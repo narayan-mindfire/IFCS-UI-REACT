@@ -16,7 +16,7 @@ import IFCSLogo from "../assets/logos/IFCSLogo.png";
 
 const navItems = [
   { to: "/dashboard", label: "Dashboard", icon: faGauge },
-  { to: "/flights", label: "Flights", icon: faPlaneUp },
+  { to: "/flight-list", label: "Flights", icon: faPlaneUp },
   { to: "/galley-planner", label: "Galley Planner", icon: faServer },
   { to: "/meal-planner", label: "Meal Planner", icon: faBowlRice },
   { to: "/compliance", label: "Compliance", icon: faCircleCheck },
@@ -52,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       {isMobile && (
         <button
           onClick={toggleSidebar}
-          className="fixed top-4 left-4 z-[100] bg-bg-surface p-2 rounded-md shadow-md"
+          className="fixed top-4 left-4 z-50 bg-bg-surface p-2 rounded-md shadow-md"
         >
           <FontAwesomeIcon icon={faBars} size="lg" />
         </button>
