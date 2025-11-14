@@ -33,6 +33,9 @@ import StatusIcon from "./status.svg";
 import CalendarIcon from "./calendar.svg";
 import IFCSLogo from "./IFCSLogo.svg";
 
+
+
+
 // --- Status Icons ---
 import CheckCircleIcon from "./statusicons/CheckCircle.svg";
 import ClipboardTextIcon from "./statusicons/ClipboardText.svg";
@@ -47,6 +50,17 @@ import SignatureIcon from "./statusicons/Signature.svg";
 import StillTruckIcon from "./statusicons/Still-Truck.svg";
 import ThermometerSimpleIcon from "./statusicons/ThermometerSimple.svg";
 import WarningIcon from "./statusicons/Warning.svg";
+
+//--- Flight List Action Icons ---
+import DetailIcon from "./flightlistActionIcons/detail.svg";
+import HistoryIcon from "./flightlistActionIcons/history.svg";
+import EditIcon from "./flightlistActionIcons/edit.svg";
+import CogIcon from "./flightlistActionIcons/cog.svg"
+
+// --- Flight Detail Icon ---
+import AirPlaneTakeOffIcon from "./flighDetailIcons/airplane-takeoff-fill.svg";
+import NoteBookIcon from "./flighDetailIcons/notebook.svg";
+
 
 export {
   AddIcon,
@@ -98,4 +112,14 @@ export {
   StillTruckIcon,
   ThermometerSimpleIcon,
   WarningIcon,
+
+  //--- Flight List Action Icons ---
+  DetailIcon,
+  HistoryIcon,
+  EditIcon,
+  CogIcon,
+
+  // --- Flight Detail Icon ---
+  AirPlaneTakeOffIcon,
+  NoteBookIcon
 };

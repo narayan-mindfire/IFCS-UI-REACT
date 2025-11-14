@@ -1,29 +1,5 @@
-export interface Flight {
-  airlineCode: string;
-  route: string;
-  flightNumber: string;
-  type: string;
-  date: string;
-  departure: string;
-  arrival: string;
-  depStation: string;
-  arrStation: string;
-  status: string;
-  acType: string;
-  acReg: string;
-  groundTime?: string;
-  plan?: string;
-  mealPlan?: string | null;
-  paxTotal: number;
-  pax: {
-    first: string;
-    business: string;
-    premium: string;
-    economy: string;
-  };
-  departureType: "actual" | "estimated" | "scheduled";
-  arrivalType: "actual" | "estimated" | "scheduled";
-}
+import type { Flight, FlightHistory } from "../types/Flight";
+
 
 export const flights: Flight[][] = [
   [
@@ -45,10 +21,10 @@ export const flights: Flight[][] = [
       mealPlan: null,
       paxTotal: 270,
       pax: {
-        first: "0/0",
-        business: "26/26",
-        premium: "0/0",
-        economy: "244/244",
+        first: "0",
+        business: "26",
+        premium: "0",
+        economy: "244",
       },
       departureType: "scheduled",
       arrivalType: "scheduled",
@@ -71,10 +47,10 @@ export const flights: Flight[][] = [
       mealPlan: null,
       paxTotal: 252,
       pax: {
-        first: "0/0",
-        business: "7/7",
-        premium: "0/0",
-        economy: "245/245",
+        first: "0",
+        business: "7",
+        premium: "0",
+        economy: "245",
       },
       departureType: "scheduled",
       arrivalType: "scheduled",
@@ -99,10 +75,10 @@ export const flights: Flight[][] = [
       mealPlan: null,
       paxTotal: 159,
       pax: {
-        first: "0/0",
-        business: "12/12",
-        premium: "0/0",
-        economy: "147/147",
+        first: "0",
+        business: "12",
+        premium: "0",
+        economy: "147",
       },
       departureType: "scheduled",
       arrivalType: "scheduled",
@@ -125,10 +101,10 @@ export const flights: Flight[][] = [
       mealPlan: null,
       paxTotal: 148,
       pax: {
-        first: "0/0",
-        business: "8/8",
-        premium: "0/0",
-        economy: "140/140",
+        first: "0",
+        business: "8",
+        premium: "0",
+        economy: "140",
       },
       departureType: "scheduled",
       arrivalType: "scheduled",
@@ -153,10 +129,10 @@ export const flights: Flight[][] = [
       mealPlan: null,
       paxTotal: 104,
       pax: {
-        first: "0/0",
-        business: "3/3",
-        premium: "0/0",
-        economy: "101/101",
+        first: "0",
+        business: "3",
+        premium: "0",
+        economy: "101",
       },
       departureType: "scheduled",
       arrivalType: "scheduled",
@@ -179,10 +155,10 @@ export const flights: Flight[][] = [
       mealPlan: null,
       paxTotal: 164,
       pax: {
-        first: "0/0",
-        business: "11/11",
-        premium: "0/0",
-        economy: "153/153",
+        first: "0",
+        business: "11",
+        premium: "0",
+        economy: "153",
       },
       departureType: "scheduled",
       arrivalType: "scheduled",
@@ -207,10 +183,10 @@ export const flights: Flight[][] = [
       mealPlan: null,
       paxTotal: 275,
       pax: {
-        first: "0/0",
-        business: "26/26",
-        premium: "0/0",
-        economy: "249/249",
+        first: "0",
+        business: "26",
+        premium: "0",
+        economy: "249",
       },
       departureType: "scheduled",
       arrivalType: "scheduled",
@@ -233,10 +209,10 @@ export const flights: Flight[][] = [
       mealPlan: null,
       paxTotal: 112,
       pax: {
-        first: "0/0",
-        business: "15/15",
-        premium: "0/0",
-        economy: "97/97",
+        first: "0",
+        business: "15",
+        premium: "0",
+        economy: "97",
       },
       departureType: "scheduled",
       arrivalType: "scheduled",
@@ -244,22 +220,7 @@ export const flights: Flight[][] = [
   ],
 ];
 
-export interface ChangeRecord {
-  field: string;
-  previously: string;
-  now: string;
-}
 
-// flightHistoryData.ts
-export interface HistoryEntry {
-  timestamp: string;
-  label: string;
-  changes: ChangeRecord[];
-}
-
-export interface FlightHistory {
-  [flightId: string]: HistoryEntry[];
-}
 
 export const flightHistoryData: FlightHistory = {
   WY843: [

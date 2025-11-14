@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { flights } from "../../const/flightData";
 import FlightHeader from "../../components/flight/FlightListHeader";
 import { AddFlightModal } from "../../components/flight/AddFlightModal";
 import { FlightHistoryModal } from "../../components/flight/FlightHistoryModal";
@@ -14,12 +13,24 @@ import {
   SeatIcon,
   StatusIcon,
 } from "../../assets/icons";
+import { useFlightStore } from "../../store/flight";
+import type { FlightFilters } from "../../types/Flight";
+
 
 const FlightList: React.FC = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showHistoryModal, setShowHistoryModal] = useState(false);
   const [selectedFlightNumber, setSelectedFlightNumber] = useState<string>("");
-  const [isLoading, setIsLoading] = useState(true);
+  const currentDate = new Date();
+  const day = String(currentDate.getDate()).padStart(2, '0');
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+  const year = currentDate.getFullYear();
+  const dateString = `${year}-${month}-${day}`;
+  const [Filters, setFilters] = useState<FlightFilters>({
+    date: dateString,
+    client: "Oman"
+  });
+  const { flights, isLoading, error, fetchFlights } = useFlightStore();
   const navigate = useNavigate();
   const handleAddFlight = () => setShowAddModal(true);
   const handleShowHistory = (flightNumber: string) => {
@@ -27,19 +38,23 @@ const FlightList: React.FC = () => {
     setShowHistoryModal(true);
   };
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
+    fetchFlights(Filters);
+  }, [fetchFlights, Filters]);
+  const handleFilterChange = (key: keyof FlightFilters, value: string) => {
+    const newFilters = {
+      ...Filters,
+      [key]: value
+    };
+    setFilters(newFilters);
+  };
   return (
     <div className="w-full h-screen flex flex-col bg-bg-secondary font-arial">
       <Navbar onMenuClick={() => { }} />
       <FlightHeader
         onBack={() => navigate("/dashboard")}
         onAddFlight={handleAddFlight}
+        onFilterChange={handleFilterChange}
+        currentFilters={Filters}
       />
 
       {showAddModal && (
@@ -135,7 +150,7 @@ const FlightList: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {isLoading
+            {isLoading && !error
               ? [...Array(6)].map((_, idx) => (
                 <React.Fragment key={`shimmer-${idx}`}>
                   <tr className="border-b border-border-muted">
