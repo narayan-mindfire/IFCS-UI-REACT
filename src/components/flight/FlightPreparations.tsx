@@ -114,7 +114,7 @@ function FlightPreparations() {
                       <span>Prepared By</span>
                       <FontAwesomeIcon
                         icon={faFilter}
-                        className="w-3 h-3 text-text-tertiary hover:text-text-secondary"
+                        className="w-3 h-3 text-text-tertiary hover:text-text-secondary no-print"
                       />
                     </div>
 

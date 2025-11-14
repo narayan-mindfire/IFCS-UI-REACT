@@ -53,7 +53,7 @@ export const FlightPreparationDetailsModal: FC<FlightPreparationModalProps> = ({
         <StatusRow />
 
         {/* Main Content */}
-        <div className="grid grid-cols-3 gap-6 mt-6 bg-bg-secondary">
+        <div className="grid grid-cols-3 gap-6 mt-6 bg-bg-surface">
           {/* Left: Galley + Cart */}
           <div className="col-span-3 md:col-span-2 rounded-2xl p-4">
             <div className="flex justify-between mt-4">
