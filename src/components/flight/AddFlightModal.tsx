@@ -183,6 +183,16 @@ export const AddFlightModal: React.FC<{ onClose: () => void }> = ({ onClose }) =
               <label className="block text-gray-700 mb-1.5 text-xs font-medium">Aircraft Reg</label>
               <select className="w-full border border-border-muted rounded px-2.5 py-1.5 text-sm text-gray-800 bg-white focus:outline-none focus:border-orange-500">
                 <option value=""></option>
+                <option value="A4O-BAA">A4O-BAA</option>
+                <option value="A4O-BAB">A4O-BAB</option>
+                <option value="A4O-BAC">A4O-BAC</option>
+                <option value="A4O-BAE">A4O-BAE</option>
+                <option value="A4O-BI">A4O-BI</option>
+                <option value="A4O-BK">A4O-BK</option>
+                <option value="A4O-BQ">A4O-BQ</option>
+                <option value="A4O-BT">A4O-BT</option>
+                <option value="A4O-BUBCF">A4O-BUBCF</option>
+                <option value="A4O-BW">A4O-BW</option>
               </select>
             </div>
 
@@ -220,7 +230,7 @@ export const AddFlightModal: React.FC<{ onClose: () => void }> = ({ onClose }) =
               >
                 <span>{item.label}</span>
                 <div
-                  className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${item.checked && item.label !== "Manual Pairing" ? "border-green-500" : "border-border-muted"
+                  className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${item.checked ? "border-green-500" : "border-border-muted"
                     }`}
                   onClick={(e) => {
                     e.preventDefault()
@@ -229,7 +239,7 @@ export const AddFlightModal: React.FC<{ onClose: () => void }> = ({ onClose }) =
                 >
                   {item.checked && (
                     <svg
-                      className={`w-3.5 h-3.5 ${item.label !== "Manual Pairing" ? "text-green-500" : "text-gray-400"} `}
+                      className={`w-3.5 h-3.5  text-green-500 `}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
