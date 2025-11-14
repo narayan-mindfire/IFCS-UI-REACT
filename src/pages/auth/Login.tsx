@@ -60,7 +60,7 @@ const Login: React.FC = () => {
                   Exit
                 </Button>
                 <Button
-                  to="/dashboard"
+                  to="/flight-list"
                   className="w-1/2 text-center bg-bg-button hover:bg-bg-primary text-white"
                 >
                   Sign In

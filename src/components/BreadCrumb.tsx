@@ -9,17 +9,17 @@ interface BreadcrumbProps {
 }
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({
-  flightId,
+  // flightId,
   currentScreen,
   handleDetailsNav,
   subItem,
 }) => {
   const navigate = useNavigate();
 
-  const handleHomePress = () => {
-    if (flightId) navigate(`/dashboard/flight/${flightId}`);
-    else navigate("/dashboard");
-  };
+  // const handleHomePress = () => {
+  //   if (flightId) navigate(`/dashboard/flight/${flightId}`);
+  //   else navigate("/dashboard");
+  // };
 
   const handleFlightsPress = () => {
     navigate(`/flight-list`);
@@ -32,7 +32,8 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
     <nav className="flex font-rubik items-center w-full py-3 text-sm">
       {/* Home */}
       <button
-        onClick={handleHomePress}
+        // onClick={handleHomePress}
+        onClick={() => {}}
         className="text-text-muted font-normal hover:text-bg-button transition-colors"
       >
         Home
@@ -42,8 +43,9 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
       <span className="mx-2 text-gray-400 text-base">›</span>
       <button
         onClick={handleFlightsPress}
-        className={`mx-1 text-text-muted font-normal hover:text-bg-button transition-colors ${currentScreen === "Flights" ? "text-text-primary font-medium" : ""
-          }`}
+        className={`mx-1 text-text-muted font-normal hover:text-bg-button transition-colors ${
+          currentScreen === "Flights" ? "text-text-primary font-medium" : ""
+        }`}
       >
         Flights
       </button>
@@ -56,10 +58,11 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
           {/* Flight Details */}
           <button
             onClick={handleDetailsNav}
-            className={`mx-1 text-text-muted font-normal hover:text-bg-button transition-colors ${currentScreen === "Details"
-              ? "text-text-primary text-base font-medium"
-              : ""
-              }`}
+            className={`mx-1 text-text-muted font-normal hover:text-bg-button transition-colors ${
+              currentScreen === "Details"
+                ? "text-text-primary text-base font-medium"
+                : ""
+            }`}
           >
             Flight Details
           </button>
