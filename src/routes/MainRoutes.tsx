@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense } from "react";
 import Loader from "../components/common/Loader";
 const Login = lazy(() => import("../pages/auth/Login"));
 const Dashboard = lazy(() => import("../pages/main-pages/Dashboard"));
@@ -12,14 +12,19 @@ const Compliance = lazy(() => import("../pages/main-pages/Compliance"));
 const Reports = lazy(() => import("../pages/main-pages/Reports"));
 const Setup = lazy(() => import("../pages/main-pages/Setup"));
 const FlightDetails = lazy(() => import("../pages/flight/FlightDetails"));
-const ComplianceTrackingList = lazy(() => import("../pages/compliance/ComplianceTrackingList"));
-const ComplianceTrackingDetails = lazy(() => import("../pages/compliance/ComplianceTrackingDetails"));
+const ComplianceTrackingList = lazy(
+  () => import("../pages/compliance/ComplianceTrackingList")
+);
+const ComplianceTrackingDetails = lazy(
+  () => import("../pages/compliance/ComplianceTrackingDetails")
+);
 
 function MainRoutes() {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/flight-list" element={<FlightList />} />
+        <Route path="/" element={<Navigate to="/flight-list" replace />} />
 
         <Route path="/login" element={<Login />} />
 
@@ -32,8 +37,10 @@ function MainRoutes() {
           <Route path="/reports" element={<Reports />} />
           <Route path="/setup" element={<Setup />} />
         </Route>
-        <Route path="/flight-list" element={<FlightList />} />
-        <Route path="/flight-details/:flightNumber" element={<FlightDetails />} />
+        <Route
+          path="/flight-details/:flightNumber"
+          element={<FlightDetails />}
+        />
         <Route
           path="/compliance/compliance-tracking/:cityName"
           element={<ComplianceTrackingList />}
