@@ -68,7 +68,7 @@ const FlightList: React.FC = () => {
       )}
 
       <div className="flex-1 overflow-auto">
-        <table className="w-full border-collapse bg-bg-surface min-w-[1600px]">
+        <table className="w-full border-collapse bg-bg-surface min-w-[1650px]">
           <thead
             className="sticky top-0 z-10 bg-bg-tertiary text-text-secondary"
             style={{
@@ -168,17 +168,24 @@ const FlightList: React.FC = () => {
                 </React.Fragment>
               ))
               : flights.map((pair, idx) => (
+
                 <React.Fragment key={idx}>
+                  {idx === 0 && (<tr>
+                    <td colSpan={13} className="h-7 bg-bg-quaternary"></td>
+                  </tr>)}
                   {pair.map((flight, subIdx) => (
                     <FlightRow
                       key={`${idx}-${subIdx}`}
                       flight={flight}
                       onShowHistory={handleShowHistory}
+                      hideRoute={subIdx === 1}
+                      isFirstInPair={subIdx === 0}
+                      isLastInPair={subIdx === pair.length - 1}
                     />
                   ))}
                   {idx < flights.length - 1 && (
                     <tr>
-                      <td colSpan={13} className="h-7 bg-bg-secondary"></td>
+                      <td colSpan={13} className="h-7 bg-bg-quaternary"></td>
                     </tr>
                   )}
                 </React.Fragment>

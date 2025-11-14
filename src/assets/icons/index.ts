@@ -50,6 +50,8 @@ import SignatureIcon from "./statusicons/Signature.svg";
 import StillTruckIcon from "./statusicons/Still-Truck.svg";
 import ThermometerSimpleIcon from "./statusicons/ThermometerSimple.svg";
 import WarningIcon from "./statusicons/Warning.svg";
+import ThermometerIcon from "./statusicons/thermometer.svg";
+import TruckIcon from "./statusicons/truck.svg";
 
 //--- Flight List Action Icons ---
 import DetailIcon from "./flightlistActionIcons/detail.svg";
@@ -60,6 +62,8 @@ import CogIcon from "./flightlistActionIcons/cog.svg"
 // --- Flight Detail Icon ---
 import AirPlaneTakeOffIcon from "./flighDetailIcons/airplane-takeoff-fill.svg";
 import NoteBookIcon from "./flighDetailIcons/notebook.svg";
+import DatabaseIcon from "./flighDetailIcons/database.svg";
+
 
 
 export {
@@ -112,6 +116,8 @@ export {
   StillTruckIcon,
   ThermometerSimpleIcon,
   WarningIcon,
+  ThermometerIcon,
+  TruckIcon,
 
   //--- Flight List Action Icons ---
   DetailIcon,
@@ -121,5 +127,6 @@ export {
 
   // --- Flight Detail Icon ---
   AirPlaneTakeOffIcon,
-  NoteBookIcon
+  NoteBookIcon,
+  DatabaseIcon
 };

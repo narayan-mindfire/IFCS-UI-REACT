@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import Navbar from "../../components/Navbar";
 
 const tabKeys = [
-  "Info",
+  "Flight Info",
   "Preparations",
   "Food Orders",
   "Content Locn",
@@ -60,7 +60,7 @@ function FlightDetails() {
       <Navbar onMenuClick={() => { }} />
       <div className="p-2 sm:p-8">
         <Breadcrumb
-          handleDetailsNav={() => setActiveTab("Info")}
+          handleDetailsNav={() => setActiveTab("Flight Info")}
           currentScreen={activeTab}
         />
 
@@ -139,11 +139,11 @@ function FlightDetails() {
           {isLoading ? <div className="relative h-16 rounded-full bg-gray-200 overflow-hidden animate-pulse duration-75">
             <div className="absolute inset-0 -translate-x-full animate-shimmer bg-linear-to-r from-transparent via-white/60 to-transparent"></div>
           </div> :
-            <div className="flex font-roboto items-stretch border rounded-full border-border-muted w-full bg-white">
+            <div className="flex font-roboto items-stretch border rounded-full border-border-muted w-full bg-white overflow-x-auto">
               {tabKeys.map((tab, index) => (
                 <div
                   key={tab}
-                  className="relative flex-1 flex items-center justify-center min-w-0"
+                  className="relative flex-1 flex items-center justify-center"
                 >
                   <button
                     onClick={() => tab !== "Invoice" && setActiveTab(tab)}
@@ -213,7 +213,7 @@ function FlightDetails() {
 
         <div className="bg-white rounded-xl mt-3 sm:mt-4 min-w-full min-h-[250px]">
           {/* Use the tab keys for conditional rendering */}
-          {activeTab === "Info" && (
+          {activeTab === "Flight Info" && (
             <FlightLegsDisplay
               legs={[
                 {
@@ -273,7 +273,7 @@ function FlightDetails() {
               ]}
             />
           )}
-          {activeTab !== "Info" && (
+          {activeTab !== "Flight Info" && (
             <div className="flex items-center justify-center w-full h-full">
               <div className="w-full">
                 {activeTab === "Preparations" && <FlightPreparations />}
