@@ -150,11 +150,11 @@ function FlightDetails() {
                     className={`relative w-full h-full px-2 py-3 text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden
                   ${activeTab === tab
                         ? "text-bg-button"
-                        : tab === "Invoice"
+                        : (tab === "Invoice" || tab === "Labels/Reports" || tab === "Deliveries" || tab === "Content Locn" || tab === "Galleys" || tab === "Food Orders" || tab === "Preparations")
                           ? "text-gray-400 cursor-not-allowed"
                           : "text-text-secondary hover:text-bg-button/80"
                       }`}
-                    disabled={tab === "Invoice"}
+                    disabled={tab === "Invoice" || tab === "Labels/Reports" || tab === "Deliveries" || tab === "Content Locn" || tab === "Galleys" || tab === "Food Orders" || tab === "Preparations"}
                   >
                     <span
                       className={`inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-medium
